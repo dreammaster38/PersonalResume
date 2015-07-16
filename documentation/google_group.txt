@@ -1,0 +1,4 @@
+Hi,
+
+i have a little problem question while using assisticant with the view model first pattern.
+I downloaded your ViewModelFirst sample from here: https://github.com/Assisticant/ViewModelFirst and tried to integrate the concept into a project of my own.

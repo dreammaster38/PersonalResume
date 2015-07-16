@@ -1,0 +1,44 @@
+﻿<controls:MetroWindow x:Class="ResumeWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:assisticant="clr-namespace:Assisticant;assembly=Assisticant.XAML"
+        Title="Resume" Height="600" Width="800"
+        ResizeMode="CanResizeWithGrip"
+        GlowBrush="{DynamicResource AccentColorBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <!--<RowDefinition Height="Auto" />-->
+        </Grid.RowDefinitions>
+        <controls:MetroAnimatedSingleRowTabControl Grid.Row="0" x:Name="MainTabControl">
+            <TabItem Header="thats me">
+                <ContentPresenter Content="{Binding PersonalContent}" Grid.Row="1">
+                    <ContentPresenter.ContentTemplateSelector>
+                        <assisticant:ViewSelector/>
+                    </ContentPresenter.ContentTemplateSelector>
+                </ContentPresenter>
+                <!--<exampleViews:ButtonsExample DataContext="{Binding}" />-->
+            </TabItem>
+            <TabItem Header="skills">
+                <ContentPresenter Content="{Binding SkillsContent}" Grid.Row="1">
+                    <ContentPresenter.ContentTemplateSelector>
+                        <assisticant:ViewSelector/>
+                    </ContentPresenter.ContentTemplateSelector>
+                </ContentPresenter>
+                <!--<exampleViews:TextExamples DataContext="{Binding}" />-->
+            </TabItem>
+        </controls:MetroAnimatedSingleRowTabControl>
+    </Grid>
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button Command="{Binding ChangeLanguageToGermanCommand}"
+                    ToolTip="Resume auf Deutsch"
+                    Content="Deutsch" />
+            <Button Command="{Binding ChangeLanguageToEnglishCommand}"
+                    ToolTip="Resume in English"
+                    Content="English" />
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+</controls:MetroWindow>
